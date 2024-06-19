@@ -1,0 +1,79 @@
+# Differrences between http1.1 vs http2
+    The Hypertext Transfer Protocol (HTTP) is the backbone of the web, 
+    facilitating the transfer of data between servers and clients (browsers). 
+    Over the years, HTTP has evolved, with HTTP/1.1 being the most widely used version
+    until the introduction of HTTP/2. differences between HTTP/1.1 and HTTP/2 
+    to understand how they impact our web experience.
+
+## 1. Speed and Performance
+**HTTP/1.1:**
+   Single Connection: Each request/response pair requires its own connection. 
+   This can lead to delays because of the need to establish multiple connections.
+   Head-of-Line Blocking: When multiple requests are sent over the same 
+   connection, a single slow request can block all subsequent ones.
+   Text-Based: HTTP/1.1 uses a text-based format for headers, which can be larger and slower to parse.
+
+**HTTP/2:**
+   Multiplexing: Multiple requests and responses can be sent over a single connection simultaneously. 
+   This reduces the need for multiple connections and eliminates head-of-line blocking.
+   Binary Protocol: HTTP/2 uses a binary format instead of text, which is more efficient for 
+   computers to process.
+
+## 2. Header Compression
+**HTTP/1.1:**
+   Uncompressed Headers: Each request and response includes headers that are sent as plain text,
+   which can be repetitive and increase the amount of data transferred.
+
+**HTTP/2:**
+   HPACK Compression: HTTP/2 uses HPACK compression to reduce the size of headers. 
+   This leads to faster transfer times and reduces bandwidth usage.
+
+## 3. Prioritization
+**HTTP/1.1:**
+   No Built-In Prioritization: There is no mechanism to prioritize certain requests over others.
+   All requests are treated equally, which can affect performance, especially for complex web pages.
+
+**HTTP/2:**
+   Stream Prioritization: HTTP/2 allows developers to prioritize streams (requests)
+   so that critical resources (like CSS and JavaScript files) are
+   loaded first, improving page load times.
+
+## 4. Connection Management
+**HTTP/1.1:**
+   Connection Overhead: Establishing and maintaining multiple connections can be
+    resource-intensive and slow.
+
+**HTTP/2:**
+   Single Persistent Connection: By reusing a single connection for 
+   multiple requests, HTTP/2 reduces overhead and improves efficiency.
+
+## 5. Security
+**HTTP/1.1:**
+   Optional Encryption: While HTTP/1.1 can use HTTPS (HTTP over SSL/TLS) for 
+   secure connections, it’s not mandatory.
+
+**HTTP/2:**
+   Mandatory Encryption for Browsers: Most implementations of HTTP/2 require
+   encryption, meaning data is always transferred securely. This is especially
+   important for protecting sensitive information.
+
+## 6. Implementation Complexity
+**HTTP/1.1:**
+   Simpler to Implement: The straightforward text-based nature of HTTP/1.1
+   makes it easier to implement and debug.
+
+**HTTP/2:**
+   More Complex: The binary nature and additional features like multiplexing and header
+   compression make HTTP/2 more complex to implement and debug.
+
+
+## Conclusion
+   HTTP/2 offers significant improvements over HTTP/1.1, particularly in terms 
+   of speed, performance, and efficiency. Its ability to multiplex requests,
+   compress headers, and prioritize streams helps modern web applications load faster and 
+   perform better. However, with these benefits comes increased complexity in implementation.
+
+   As the web continues to evolve, adopting HTTP/2 is a step towards
+   a faster, more efficient internet experience. While HTTP/1.1 served
+   us well for many years, HTTP/2 addresses many of its limitations, paving 
+   the way for the future of web communication.
